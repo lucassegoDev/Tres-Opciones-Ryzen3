@@ -1,0 +1,390 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Tres opciones Ryzen 3</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Ficha técnica: papel frío, tinta oscura y cobre como único acento. */
+:root {
+  --bg: #EEF2F5;
+  --surface: #FFFFFF;
+  --ink: #15202B;
+  --muted: #5A6878;
+  --line: #D3DBE3;
+  --accent: #A94F0B;
+  --accent-soft: #F6E8DC;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1620;
+    --surface: #162230;
+    --ink: #E6EDF4;
+    --muted: #94A3B4;
+    --line: #2A3848;
+    --accent: #F0A35E;
+    --accent-soft: #33261A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1620;
+  --surface: #162230;
+  --ink: #E6EDF4;
+  --muted: #94A3B4;
+  --line: #2A3848;
+  --accent: #F0A35E;
+  --accent-soft: #33261A;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.6 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 56px;
+}
+.wrap { max-width: 920px; margin: 0 auto; }
+.wrap > * + * { margin-top: 20px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+
+header { margin-bottom: 4px; }
+.kicker {
+  margin: 0 0 8px;
+  font: 500 12px/1.4 var(--mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+h1 { font: 800 clamp(30px, 6vw, 44px)/1.05 var(--display); letter-spacing: -.02em; }
+.lede { margin: 12px 0 0; max-width: 62ch; color: var(--muted); }
+.sec-title { font: 800 20px/1.2 var(--display); margin-bottom: 12px; }
+
+/* Tarjetas */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: minmax(0, 1fr);
+}
+.card > * { min-width: 0; }
+@media (min-width: 720px) {
+  .card.has-photo { grid-template-columns: minmax(0, 280px) minmax(0, 1fr); }
+}
+.card h2 { font: 800 24px/1.15 var(--display); margin: 10px 0 8px; }
+.card p { margin: 0 0 12px; }
+.card p:last-child { margin-bottom: 0; }
+
+.tag {
+  display: inline-block;
+  font: 500 12px/1 var(--mono);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.price { margin: 0 0 14px; font: 800 28px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.price small { display: block; margin-top: 6px; font: 400 14px/1.5 var(--body); color: var(--muted); }
+
+/* Tabla comparativa */
+.table-wrap {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 620px; }
+th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th { font: 500 12px/1.4 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+td:first-child { font-weight: 600; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 600; }
+
+/* Fotos clicables */
+.photo {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  text-decoration: none;
+  color: inherit;
+}
+.photo.tall { aspect-ratio: 4 / 5; }
+.photo.wide { aspect-ratio: 4 / 3; }
+.photo img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+.photo:hover img, .photo:focus-visible img { transform: scale(1.03); }
+.photo:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.photo .cta {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--surface);
+  font: 600 14px/1.3 var(--body);
+}
+@media (prefers-reduced-motion: reduce) { .photo img { transition: none; } }
+
+/* Especificaciones */
+.specs {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 8px 16px;
+  margin: 0 0 16px;
+  font-size: 14px;
+}
+.specs dt { font: 500 12px/2 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+.specs dd { margin: 0; }
+@media (max-width: 480px) {
+  .specs { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .specs dt { margin-top: 8px; }
+}
+
+/* Ventajas y desventajas */
+.pros {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin: 0 0 16px;
+}
+@media (min-width: 560px) { .pros { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.pros h3 { font: 500 12px/1.4 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.pros ul { margin: 0; padding-left: 18px; font-size: 14px; }
+.pros li + li { margin-top: 4px; }
+
+.note { margin: 0; padding: 12px 14px; border-radius: 8px; background: var(--accent-soft); font-size: 14px; }
+.note.dashed { background: transparent; border: 1px dashed var(--line); }
+
+/* Glosario y pasos */
+.gloss, .next, .matrix-block { margin-top: 32px; }
+.gloss dl {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px 24px;
+  margin: 0;
+}
+@media (min-width: 640px) { .gloss dl { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.gloss dt { font: 600 15px/1.3 var(--body); }
+.gloss dd { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+.next ol { margin: 0; padding-left: 20px; }
+.next li + li { margin-top: 8px; }
+footer { margin-top: 32px; font: 12px/1.6 var(--mono); color: var(--muted); }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="kicker">Compra de PC para proyección · precios del 27/10/2026</p>
+    <h1>Tres opciones Ryzen 3</h1>
+    <p class="lede">Comparativa para reemplazar la notebook que ya no tenemos disponible. La PC se usaría para Holyrics (letras de cantos y mensajes), videos y música, y poco más.</p>
+  </header>
+
+  <section class="card" aria-labelledby="uso">
+    <div>
+      <h2 class="sec-title" id="uso">Cómo se usaría</h2>
+      <dl class="specs">
+        <dt>Programas</dt><dd>Holyrics, videos y música</dd>
+        <dt>Normalmente</dt><dd>Armada en la bandeja del templo, en planta baja</dd>
+        <dt>Reuniones en el SUM</dt><dd>Se lleva al SUM y se vuelve a armar allí</dd>
+        <dt>Lo que más pesa</dt><dd>Que se traslade y se conecte rápido, que el video se vea fluido en el proyector y que tenga salida HDMI</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="matrix-block" aria-labelledby="comparativa">
+    <h2 class="sec-title" id="comparativa">Comparativa para este uso</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Criterio</th><th>1 · Combo usado</th><th>2 · Mini PC nueva</th><th>3 · Notebook</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Precio</td><td class="num">$140.000 + piezas que faltan</td><td class="num">$522.465<br>$492.465 con cupón</td><td class="num">Desde $700.000</td></tr>
+          <tr><td>Traslado al SUM</td><td>Difícil: torre, monitor y cables</td><td>Fácil: caja chica y liviana</td><td>Fácil: todo en un equipo</td></tr>
+          <tr><td>Armado</td><td>Hay que armarlo y conseguir SSD, fuente y gabinete</td><td>Listo para usar</td><td>Listo para usar</td></tr>
+          <tr><td>Video y Holyrics</td><td>Bien: 4 núcleos y gráficos Vega 8</td><td>Alcanza para 1080p. Con 4K o muchos programas abiertos puede quedar justa</td><td>Sin datos del modelo</td></tr>
+          <tr><td>Estado</td><td>Usado, retiro en persona</td><td>Nuevo, de tienda oficial</td><td>Sin datos</td></tr>
+          <tr><td>Windows</td><td>Hay que conseguirlo</td><td>Confirmar si viene incluido</td><td>Confirmar</td></tr>
+          <tr><td>Ampliar después</td><td>Sí, es de escritorio</td><td>Limitado: el procesador no se cambia</td><td>Depende del modelo</td></tr>
+          <tr><td>Pantalla para operar</td><td>Hace falta un monitor</td><td>Hace falta un monitor o pantalla</td><td>Trae pantalla propia</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <article class="card has-photo" id="opcion-1">
+    <a class="photo tall" href="https://www.facebook.com/marketplace/item/1558409986008626/?referral_code=null&amp;referral_story_type=post&amp;tracking=browse_serp%3A00b633e6-5928-461f-a7b7-46e284613251" target="_blank" rel="noopener noreferrer" aria-label="Ver la publicación del combo Ryzen 3 3200G y MSI B350M en Facebook Marketplace">
+      <img src="img/fb_placa.jpg" alt="Caja de la placa MSI B350M Gaming Pro">
+      <span class="cta"><span>Ver publicación</span><span aria-hidden="true">↗</span></span>
+    </a>
+    <div>
+      <p><span class="tag">Opción 1 · Usado</span></p>
+      <h2>Combo Ryzen 3 3200G + MSI B350M Gaming Pro</h2>
+      <p class="price">$140.000<small>Retiro en persona en Paraná. No incluye SSD, fuente, gabinete ni Windows.</small></p>
+      <dl class="specs">
+        <dt>Procesador</dt><dd>AMD Ryzen 3 3200G: 4 núcleos y 4 hilos, hasta 4,0 GHz, 65 W</dd>
+        <dt>Gráficos</dt><dd>Radeon Vega 8, integrados en el procesador</dd>
+        <dt>Placa</dt><dd>MSI B350M Gaming Pro: socket AM4, formato micro-ATX, 4 ranuras de RAM DDR4</dd>
+        <dt>Memoria</dt><dd>Se usarían 2 o 4 módulos de la otra PC. Tienen que ser DDR4 de escritorio.</dd>
+        <dt>Disco</dt><dd>SSD a comprar aparte</dd>
+        <dt>Estado</dt><dd>Usado, en buen estado (según la publicación)</dd>
+      </dl>
+      <div class="pros">
+        <div>
+          <h3>Ventajas</h3>
+          <ul>
+            <li>Es lo más barato en el precio inicial</li>
+            <li>Más potencia que la mini PC: 4 núcleos y gráficos Vega 8, con margen para Holyrics y video</li>
+            <li>Se puede ampliar después: disco, RAM o placa de video</li>
+            <li>Reutiliza la RAM de la otra PC, sin comprar memoria</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Desventajas</h3>
+          <ul>
+            <li>Hay que sumar SSD, fuente, gabinete y Windows, y el total sube</li>
+            <li>Es una torre con monitor, teclado y cables: pesada de llevar al SUM cada vez</li>
+            <li>Es usado y no tiene garantía de tienda</li>
+            <li>Armarlo lleva tiempo</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Antes de pagar, probar que arranque y detecte la RAM. Confirmar si viene con el cooler del procesador.</p>
+    </div>
+  </article>
+
+  <article class="card has-photo" id="opcion-2">
+    <a class="photo wide" href="https://www.mercadolibre.com.ar/mini-pc-amd-ryzen-3-3200u-16gb-256gb-ssd-solarmax-sxmp-1r33200/p/MLA79422072?pdp_filters=SHIPPING_ORIGIN%3A10215068#polycard_client=search-desktop&amp;be_origin=backend&amp;overlay_label=not_apply&amp;search_layout=grid&amp;position=5&amp;type=product&amp;tracking_id=3fbca2e9-26b5-411c-af53-42e964f92b60&amp;overlay_label_capability=not_apply&amp;wid=MLA3963429034&amp;sid=search" target="_blank" rel="noopener noreferrer" aria-label="Ver la mini PC Solarmax en Mercado Libre">
+      <img src="img/solarmax.jpg" alt="Mini PC Solarmax de color negro">
+      <span class="cta"><span>Ver publicación</span><span aria-hidden="true">↗</span></span>
+    </a>
+    <div>
+      <p><span class="tag">Opción 2 · Nueva</span></p>
+      <h2>Mini PC Solarmax Ryzen 3 3200U</h2>
+      <p class="price">$522.465 de contado<small>Con cupón, $492.465. En 9 cuotas de $73.035,89 ($657.323). En 6 cuotas de $116.509,76 (unos $699.000).</small></p>
+      <dl class="specs">
+        <dt>Procesador</dt><dd>AMD Ryzen 3 3200U: 2 núcleos y 4 hilos, hasta 3,5 GHz, 15 W</dd>
+        <dt>Gráficos</dt><dd>Radeon Vega 3, integrados</dd>
+        <dt>Memoria</dt><dd>16 GB (la publicación también ofrece 8 GB y 32 GB)</dd>
+        <dt>Disco</dt><dd>SSD de 256 GB</dd>
+        <dt>Vendedor</dt><dd>Acuario Insumos y Tecnología, tienda oficial</dd>
+        <dt>Envío</dt><dd>Gratis, llega entre el sábado y el martes 3 de noviembre. También hay retiro gratis en puntos de correo.</dd>
+      </dl>
+      <div class="pros">
+        <div>
+          <h3>Ventajas</h3>
+          <ul>
+            <li>Chica y liviana: fácil de llevar al SUM y de volver a armar</li>
+            <li>Lista para usar: se enchufa y funciona, sin armado</li>
+            <li>Compra nueva, de tienda oficial, con envío gratis</li>
+            <li>Procesador de bajo consumo (15 W), en general silencioso</li>
+            <li>Su precio de contado está dentro del rango de $450.000 a $600.000 previsto</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Desventajas</h3>
+          <ul>
+            <li>Cuesta más que el combo en el precio inicial</li>
+            <li>Dos núcleos: alcanza para Holyrics y video en 1080p; con 4K o muchos programas abiertos puede quedar justa</li>
+            <li>Gráficos integrados básicos</li>
+            <li>No se puede cambiar el procesador, y la publicación no dice si la RAM y el disco se pueden ampliar</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Conviene pagar de contado o con cupón: en cuotas el precio sube.</p>
+      <p class="note dashed" style="margin-top: 12px">Se mencionó una variante con Ryzen 5 sin enlace ni especificaciones. No está incluida en esta comparativa.</p>
+    </div>
+  </article>
+
+  <article class="card" id="opcion-3">
+    <div>
+      <p><span class="tag">Opción 3 · Sin foto ni enlace</span></p>
+      <h2>Notebook con Ryzen 3</h2>
+      <p class="price">$700.000 o más<small>Sin modelo ni especificaciones confirmadas.</small></p>
+      <dl class="specs">
+        <dt>Procesador</dt><dd>Ryzen 3, generación sin confirmar. Según la generación, el rendimiento cambia mucho.</dd>
+        <dt>Memoria</dt><dd>Sin datos</dd>
+        <dt>Disco</dt><dd>Sin datos</dd>
+        <dt>Pantalla</dt><dd>Sin datos</dd>
+      </dl>
+      <div class="pros">
+        <div>
+          <h3>Ventajas</h3>
+          <ul>
+            <li>Todo en uno: pantalla, teclado y batería</li>
+            <li>Trae pantalla propia para manejar Holyrics mientras el proyector muestra la presentación</li>
+            <li>Se traslada fácil, como la mini PC</li>
+            <li>Sigue funcionando un rato si se corta la luz</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Desventajas</h3>
+          <ul>
+            <li>Es la opción más cara</li>
+            <li>Sin modelo ni especificaciones, no se puede asegurar que rinda lo necesario</li>
+            <li>Muchas notebooks traen la RAM soldada y no se puede ampliar</li>
+            <li>Confirmar Windows y salida HDMI</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note dashed">Preguntas antes de comprar: modelo exacto y procesador; RAM (8 GB como mínimo, 16 GB cómodo); si tiene SSD; y si es nueva y tiene garantía.</p>
+    </div>
+  </article>
+
+  <section class="card" aria-labelledby="encaje">
+    <div>
+      <h2 class="sec-title" id="encaje">Qué encaja mejor con este uso</h2>
+      <p>Para dejarla armada en la bandeja y llevarla al SUM cuando haga falta, la mini PC es la opción más práctica: es chica, lista para usar y de compra nueva.</p>
+      <p>El combo es el más barato en el precio inicial y da más potencia, pero exige sumar piezas, armarlo y trasladar una torre con monitor cada vez.</p>
+      <p>La notebook es cómoda y trae pantalla propia, pero es la más cara y todavía no tiene datos confirmados.</p>
+    </div>
+  </section>
+
+  <section class="gloss" aria-labelledby="glosario">
+    <h2 class="sec-title" id="glosario">Glosario en simple</h2>
+    <dl>
+      <div><dt>Holyrics</dt><dd>Programa para proyectar letras de cantos, mensajes, videos y música. Funciona en Windows.</dd></div>
+      <div><dt>HDMI</dt><dd>Cable que lleva imagen y sonido de la PC al proyector.</dd></div>
+      <div><dt>SUM</dt><dd>Salón de usos múltiples, donde también se hacen reuniones.</dd></div>
+      <div><dt>Procesador (CPU)</dt><dd>El cerebro de la PC. Hace los cálculos.</dd></div>
+      <div><dt>Núcleos e hilos</dt><dd>Cada núcleo puede hacer una tarea a la vez. Más núcleos, más tareas en simultáneo.</dd></div>
+      <div><dt>Gráficos integrados</dt><dd>La placa de video viene dentro del procesador. Alcanzan para uso general y video.</dd></div>
+      <div><dt>RAM</dt><dd>Memoria de trabajo. Con más GB se pueden tener más programas abiertos sin que se trabe.</dd></div>
+      <div><dt>SSD</dt><dd>Disco de estado sólido. Arranca y abre programas mucho más rápido que un disco mecánico.</dd></div>
+      <div><dt>DDR4 y socket AM4</dt><dd>DDR4 es el tipo de RAM de escritorio que usa la placa del combo. AM4 es el zócalo donde va el procesador.</dd></div>
+      <div><dt>Fuente y gabinete</dt><dd>La fuente alimenta todo y el gabinete es la caja. La mini PC no los necesita.</dd></div>
+    </dl>
+  </section>
+
+  <section class="next" aria-labelledby="pasos">
+    <h2 class="sec-title" id="pasos">Próximos pasos</h2>
+    <ol>
+      <li>Preguntar al vendedor de la mini PC si trae Windows con licencia, qué salidas de video tiene y si la RAM y el disco se pueden ampliar.</li>
+      <li>Si se elige el combo, sumar SSD, fuente, gabinete y Windows para comparar el costo total real.</li>
+      <li>Confirmar modelo y procesador de la notebook antes de considerarla.</li>
+      <li>Con la opción elegida, probar Holyrics con un video y música en el proyector del SUM antes de la primera reunión.</li>
+    </ol>
+  </section>
+
+  <footer>Precios tomados de las publicaciones (27/10/2026). Las especificaciones son las generales de cada procesador; confirmalas en cada publicación antes de comprar.</footer>
+</div>
+
+</body></html>
